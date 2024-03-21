@@ -26,7 +26,7 @@ COPY ./docker/php.ini /usr/local/etc/php/
 
 COPY . .
 
-RUN composer install && php artisan key:generate
+RUN composer install && php artisan key:generate && cp .env.example .env
 
 # Expose port 9000 to Docker
 EXPOSE 9000

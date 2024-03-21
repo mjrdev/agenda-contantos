@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..600;1,100..900&display=swap');
+
+html, body, * {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 div {
+    margin: 0px;
+    padding: 0px;
+}
+
+button {
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a3576;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover {
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #132c64;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-cancel {
+    background-color: rgb(171, 33, 33);
+}
+
+.btn-cancel:hover {
+    background-color: rgb(141, 21, 21);
+}   
