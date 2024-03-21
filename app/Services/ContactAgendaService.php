@@ -13,9 +13,7 @@ class ContactAgendaService
 
     public function createContact($payload)
     {
-        $path = Storage::put('public/images', $payload['picture'], [
-            'visibility' => 'public'
-        ]);
+        $path = Storage::put('public', $payload['picture']);
         $url = Storage::url($path);
 
         return $this->repository->create([

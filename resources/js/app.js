@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import './bootstrap';
-import Counter from './pages/index.vue'
+import Index from './pages/index.vue'
  
 const app = createApp()
 
-app.component('App', Counter)
+app.component('App', Index)
 
 app.mount('#app')

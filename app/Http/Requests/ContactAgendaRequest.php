@@ -24,8 +24,7 @@ class ContactAgendaRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'phone' => 'required|string|max:11',
-            'picture' => 'required|file'
+            'phone' => 'required|string|size:11'   
         ];
     }
 }

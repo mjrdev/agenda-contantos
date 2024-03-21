@@ -29,41 +29,32 @@ const handleFileChange = (event) => {
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="mb-3" >
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <div class="mb-1" >
+                        <label for="exampleInputEmail1" class="form-label">Nome do contato</label>
                         <input v-model="formData.name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
 
-                    <div v-if="errors?.name !== undefined" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span v-if="errors?.name !== undefined" class="text-danger">
                         {{ errors?.name !== undefined && errors?.name[0] }}
-                    </div>
+                    </span>
                     
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input v-model="formData.email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
 
-                    <div v-if="errors?.email !== undefined" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span v-if="errors?.email !== undefined" class="text-danger">
                         {{ errors?.email !== undefined && errors?.email[0] }}
-                    </div>
+                    </span>
 
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <label for="exampleInputEmail1" class="form-label">Telefone</label>
                         <input v-model="formData.phone" type="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
+                    </div>  
 
-                    <div v-if="errors?.phone !== undefined" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span v-if="errors?.phone !== undefined" class="text-danger">
                         {{ errors?.phone !== undefined && errors?.phone[0] }}
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Foto</label>
-                        <input @change="handleFileChange" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-
-                    <div v-if="errors?.picture !== undefined" class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ errors?.picture !== undefined && errors?.picture[0] }}
-                    </div>
+                    </span>
                 </form>
             </div>
             <div class="modal-footer">

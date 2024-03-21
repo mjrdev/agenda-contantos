@@ -4,6 +4,7 @@ import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 import { ref, onMounted } from 'vue'
 import api from '../api'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const items = ref([])
 const errors = ref([])
@@ -13,9 +14,7 @@ onMounted(() => {
     .then(res => {
         items.value = res.data
     })
-    .catch(err => {
-        console.log(err)
-    })
+    .catch(err => {})
 })
 
 const submitForm = (form) => {
@@ -27,19 +26,19 @@ const submitForm = (form) => {
     
     api.post('contactAgenda', formData)
     .then((response) => {
-    alert('ok')
+        alert('ok')
     })
     .catch((error) => {
-    errors.value = error.response.data.errors
+        errors.value = error.response.data.errors
     });
 };  
 
 const headers = [
-    { text: "FOTO", value: "picture", sortable: true },
     { text: "NOME", value: "name" },
     { text: "EMAIL", value: "email" },
     { text: "CELULAR", value: "phone" },
-    { text: "FAVORITO", value: "favorite", width: '20px' },
+    { text: "FAVORITO", value: "favorite", width: '20px', align: 'center', sortable: false},
+    { text: "AÇÕES", value: "action", sortable: false},
 ];
 
 </script>
@@ -47,15 +46,30 @@ const headers = [
     <div id="main">
         <div class="container">
             <div class="header-container">
-                <h2>Sua agenda de contanto</h2>
+                <div class="title-container">
+                    <span class="icon-main">
+                        <i class="bi bi-person-lines-fill"></i> 
+                    </span>
+                    <h2>Sua agenda de contanto</h2>
+                </div>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">Novo Contatos</button>
             </div>
             <Vue3EasyDataTable
                 :headers="headers" :items="items" buttons-pagination
-
+                class="custom-table"
             >
                 <template #item-picture="{ picture}">
-                    <img :href="'https://bafkreih3oswhrhrvxwhebuqqnlqtklnth5pbc2q3iv6446icpltt6tymvy.ipfs.dweb.link/?filename=Stephen.png'"></img>
+                    <img href="https://bafkreih3oswhrhrvxwhebuqqnlqtklnth5pbc2q3iv6446icpltt6tymvy.ipfs.dweb.link/?filename=Stephen.png"></img>
+                </template>
+                <template #item-favorite="{ favorite }">
+                    <i v-if="favorite" class="bi bi-star-fill text-warning"></i>
+                    <i v-else="favorite" class="bi bi-star"></i>    
+                </template>
+                <template #item-action="{ favorite }">
+                    <div class="d-flex gap-2">
+                        <i class="bi bi-pencil-fill"></i>
+                        <i class="bi bi-trash-fill"></i>
+                    </div>          
                 </template>
             </Vue3EasyDataTable>
             <Modal :handle-click="submitForm" :errors="errors"/>
@@ -72,7 +86,9 @@ const headers = [
 }
 
 .container {
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
+    box-shadow: 2px 2px 10px #5353536e;
+    padding: 20px;
 }
 
 .header-container {
@@ -80,5 +96,45 @@ const headers = [
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+}
+
+.custom-table {
+    --easy-table-body-row-font-size: 18pt;
+    --easy-table-body-row-font-color: #272727;
+    --easy-table-body-row-background-color: #ffffff;
+    --easy-table-body-row-height: 50px;
+    --easy-table-body-row-font-size: 16px;
+
+    --easy-table-header-font-size: 14px;
+    --easy-table-header-height: 50px;
+    --easy-table-header-font-color: #ffffff;
+    --easy-table-header-background-color: #1a3576;
+
+    --easy-table-footer-background-color: #1a3576;
+    --easy-table-footer-font-color: #ffffff;
+    --easy-table-footer-font-size: 14px;
+    --easy-table-footer-padding: 0px 10px;
+    --easy-table-footer-height: 50px;
+}
+
+i {
+    cursor: pointer;
+}
+
+.icon-main {
+    width: 50px;
+    height: 50px;
+    background-color: #1a3576;
+    color: #ffffff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 </style>
