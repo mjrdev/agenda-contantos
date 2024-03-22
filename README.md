@@ -5,13 +5,16 @@ Será necessário ter o docker instalado localmente para build da aplicaçãp
 A aplicação consiste em um CRUD para cadastrar contatos em uma agenda, uso como
 tecnologias, php/laravel e vue para as interfaces.
 
-#### como rodar o projeto
+#### como rodar o projeto LINUX/MAC - no windows faça os comandos equivalentes
 ``` bash
-git clone https://github.com/mjrdev/agenda-contantos.git
+git clone https://github.com/mjrdev/agenda-contantos.git agenda
 
 or 
 
-git clone git@github.com:mjrdev/agenda-contantos.git
+git clone git@github.com:mjrdev/agenda-contantos.git agenda
+```
+``` bash
+cd agenda
 ``` 
 ``` bash
 docker compose up -d --build
