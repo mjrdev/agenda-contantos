@@ -45,4 +45,4 @@ docker compose exec app npm run build
 
 NOTA: pode acontecer que em seu caso tenha que usar ```docker-composer ...```
 
-a aplicação ficara disponivel em ```http://localhost:8005
+a aplicação ficara disponivel em ```http://localhost:8005```
