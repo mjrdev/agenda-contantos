@@ -22,4 +22,9 @@
     width: 1100px;
     margin: 0 auto;     
 }
+
+h2 {
+    margin-left: 10px;
+    padding: 0;
+}
 </style>
