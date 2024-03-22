@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $contact = new ContactAgenda([
-            'id' => 1,
             'name' => 'Manoel Jr',
             'email' => 'jrgomesdev@gmail.com',
             'phone' => '98 985870637',

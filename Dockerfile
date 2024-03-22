@@ -13,6 +13,7 @@ RUN apt-get update \
         git \
         curl \
         libxml2-dev \
+        nodejs \
     && docker-php-ext-install pdo_mysql zip gd exif pcntl bcmath soap opcache intl
 
 # Instale o Composer globalmente
@@ -28,6 +29,7 @@ COPY . .
 
 RUN cp .env.example .env && composer install && php artisan key:generate
 
+RUN npm install && npm run build
 # Expose port 9000 to Docker
 EXPOSE 9000
 

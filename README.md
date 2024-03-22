@@ -16,8 +16,20 @@ git clone git@github.com:mjrdev/agenda-contantos.git agenda
 ``` bash
 cd agenda
 ``` 
+
+se estiver em ambiente linux voce pode rodar o make.sh, se não continue com os comandos
+
 ``` bash
 docker compose up -d --build
+``` 
+``` bash
+cp .env.example .env
+``` 
+``` bash
+docker compose exec app composer install
+``` 
+``` bash
+docker compose exec app php artisan key:generate
 ``` 
 ``` bash
 docker compose exec app chmod 777 -Rf ./storage ./bootstrap
