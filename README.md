@@ -7,7 +7,11 @@ tecnologias, php/laravel e vue para as interfaces.
 
 #### como rodar o projeto
 ``` bash
-git clone http
+git clone https://github.com/mjrdev/agenda-contantos.git
+
+or 
+
+git clone git@github.com:mjrdev/agenda-contantos.git
 ``` 
 ``` bash
 docker compose up -d --build
@@ -19,4 +23,4 @@ docker compose exec app chmod 777 -Rf ./storage ./bootstrap
 docker compose exec app php artisan migrate --seed
 ```
 
-** pode acontecer que em seu caso tenha que usar ```docker-composer ...```
+NOTA: pode acontecer que em seu caso tenha que usar ```docker-composer ...```
