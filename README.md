@@ -19,6 +19,7 @@ cd agenda
 ``` bash
 # linux apenas
 chmod +x ./make.sh
+./make.sh
 ``` 
 
 se estiver em ambiente linux voce pode rodar o make.sh, se não continue com os comandos
