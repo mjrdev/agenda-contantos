@@ -17,7 +17,8 @@ git clone git@github.com:mjrdev/agenda-contantos.git agenda
 cd agenda
 ``` 
 ``` bash
-chmod x+ ./make.sh
+# linux apenas
+chmod +x ./make.sh
 ``` 
 
 se estiver em ambiente linux voce pode rodar o make.sh, se não continue com os comandos
