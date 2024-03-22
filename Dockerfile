@@ -12,7 +12,7 @@ RUN apt-get update \
         unzip \
         git \
         curl \
-        libxml2-dev
+        libxml2-dev \
     && docker-php-ext-install pdo_mysql zip gd exif pcntl bcmath soap opcache intl
 
 # Instale o Composer globalmente
