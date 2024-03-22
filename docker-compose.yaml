@@ -15,7 +15,7 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_DATABASE: "volts_app"
+      MYSQL_DATABASE: "agenda"
       MYSQL_ROOT_PASSWORD: "password"
     volumes:
       - db-data:/var/lib/mysql
@@ -23,6 +23,7 @@ services:
       - 3303:3306
 
   web:
+    container_name: web
     image: nginx:latest
     restart: always
     ports:
