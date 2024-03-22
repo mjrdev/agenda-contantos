@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactAgendaRequest extends FormRequest
+class ContactAgendaUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class ContactAgendaRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:contact_agendas,email',
-            'phone' => 'required|string|size:11|unique:contact_agendas,phone',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string|size:11',
             'favorito' => 'boolean',
         ];
     }

@@ -11,10 +11,12 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@devindex/vue-mask": "^2.0.3",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/vue-fontawesome": "^3.0.6",
         "@vitejs/plugin-vue": "^5.0.4",
         "bootstrap-icons": "^1.11.3",
+        "sweetalert2": "^11.10.6",
         "vue": "^3.4.21",
         "vue3-easy-data-table": "^1.5.47"
     }

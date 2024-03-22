@@ -19,7 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/contactAgenda', [ContactAgendaController::class, 'store']);
-Route::get('/contactAgenda', [ContactAgendaController::class, 'index']);
-Route::get('/contactAgenda/{contactAgenda}', [ContactAgendaController::class, 'show']);
-Route::put('/contactAgenda/{contactAgenda}', [ContactAgendaController::class, 'update']);
+
+Route::group(['prefix' => 'contactAgenda'], function () {
+    Route::post('/', [ContactAgendaController::class, 'store']);
+    Route::get('/', [ContactAgendaController::class, 'index']);
+    Route::get('/{contactAgenda}', [ContactAgendaController::class, 'show']);
+    Route::put('/{contactAgenda}', [ContactAgendaController::class, 'update']);
+    Route::delete('/{contactAgenda}', [ContactAgendaController::class, 'destroy']);
+});

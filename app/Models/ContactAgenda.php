@@ -13,6 +13,6 @@ class ContactAgenda extends Model
         'name',
         'email',
         'phone',
-        'picture',
+        'favorite',
     ];
 }

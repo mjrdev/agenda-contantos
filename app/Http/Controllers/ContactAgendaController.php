@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactAgendaRequest;
+use App\Http\Requests\ContactAgendaUpdateRequest;
+use App\Models\ContactAgenda;
 use App\Services\ContactAgendaService;
 use Illuminate\Http\Request;
 
@@ -21,13 +23,18 @@ class ContactAgendaController extends Controller
         return $this->service->getContacts();
     }
 
-    public function show(ContactAgendaRequest $contactAgenda)
+    public function show(ContactAgenda $contactAgenda)
     {
         return $contactAgenda;
     }
 
-    public function update(ContactAgendaRequest $contactAgenda, Request $request)
+    public function destroy(ContactAgenda $contactAgenda)
     {
-        return $contactAgenda->update($request->all());
+        return $this->service->deleteContact($contactAgenda);
+    }
+
+    public function update(ContactAgendaUpdateRequest $request, ContactAgenda $contactAgenda)
+    {
+        return $this->service->updateContact($contactAgenda, $request->all());
     }
 }

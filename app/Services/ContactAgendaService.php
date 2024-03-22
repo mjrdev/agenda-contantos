@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\ContactAgenda;
 use App\Repositories\ContactAgendaRepository;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,14 +14,10 @@ class ContactAgendaService
 
     public function createContact($payload)
     {
-        $path = Storage::put('public', $payload['picture']);
-        $url = Storage::url($path);
-
         return $this->repository->create([
             'name' => $payload['name'],
             'email' => $payload['email'],
             'phone' => $payload['phone'],
-            'picture' => $url,
         ]);
     }
     public function getContacts()
@@ -30,5 +27,13 @@ class ContactAgendaService
     public function show($id)
     {
         return $this->repository->find($id);
+    }
+    public function deleteContact(ContactAgenda $contact)
+    {
+        return $this->repository->delete($contact);
+    }
+    public function updateContact(ContactAgenda $contact, array $payload)
+    {
+        return $this->repository->update($contact, $payload);
     }
 }

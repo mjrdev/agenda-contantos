@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ContactAgenda;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $contact = new ContactAgenda([
+            'id' => 1,
+            'name' => 'Manoel Jr',
+            'email' => 'jrgomesdev@gmail.com',
+            'phone' => '98 985870637',
+            'favorite' => true,
+        ]);
+        $contact->save();
     }
 }
