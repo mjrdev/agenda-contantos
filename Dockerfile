@@ -12,12 +12,14 @@ RUN apt-get update \
         unzip \
         git \
         curl \
-        libxml2-dev \
-        nodejs \
+        libxml2-dev
     && docker-php-ext-install pdo_mysql zip gd exif pcntl bcmath soap opcache intl
 
 # Instale o Composer globalmente
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 
 # Defina o diretório de trabalho como o diretório do aplicativo Laravel
 WORKDIR /var/www/
