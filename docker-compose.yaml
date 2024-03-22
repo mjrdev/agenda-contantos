@@ -23,7 +23,6 @@ services:
       - 3303:3306
 
   web:
-    container_name: web
     image: nginx:latest
     restart: always
     ports:
